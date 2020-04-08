@@ -45,9 +45,9 @@ def test_ctr():
     ctr_association = TestNumberWithAssociation(
         URL_OF_PDF_FILE_WITH_PCR_TEST_NUMBER_WITH_ASSOCIATION_IN_JAPAN
     )
-    # 全検査数
+    print("全検査数")
     display(ctr_association.get_data()[0])
-    # 保険適応検査数
+    print("保険適応検査数")
     display(ctr_association.get_data()[1])
 
 
