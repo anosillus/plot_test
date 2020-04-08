@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  jupyter:
+    restart: always
+    build:
+      context: ./python_env
+    image: plot_test:v1
+    volumes:
+      - ./../main:/root/main
+      - ./../template:/root/template
+      - ./../playground:/root/playground
+      - ./../data:/root/data
+      - ./../src:/root/src
+      - ./../reports:/root/reports
+      - ./../docker_env/python_env:/root/env
+    ports:
+      - "8888:8888"
+    environment:
+      ROOT: "TRUE"
+      TZ: Asia/Tokyo
+    command: "/opt/conda/bin/jupyter notebook  --notebook-dir=/root"
